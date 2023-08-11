@@ -64,7 +64,7 @@ public class Hero : MonoBehaviour {
     private void ReadInput () {
         overview.lookingInputValues.x = Input.GetAxis("Mouse X");
         overview.lookingInputValues.y = Input.GetAxis("Mouse Y");
-        //overview.aimingInputValue = Input.GetMouseButton(1);
+        overview.aimingInputValue = Input.GetMouseButton(1);
         movement.movementInputValues.x = Input.GetAxis("Horizontal");
         movement.movementInputValues.y = Input.GetAxis("Vertical");
         movement.jumpingInputValue = Input.GetButtonDown("Jump");
