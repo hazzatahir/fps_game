@@ -42,12 +42,14 @@ public class NPCScript : MonoBehaviour
     void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
-        npcHealth = Random.Range(3 , 7);
+        //npcHealth = Random.Range(3 , 7);
         patrolPoints = new Transform[GameObject.Find("PatrolPoints").transform.childCount];
         anim = GetComponent<Animator>();
         patrolTime = Random.Range(6f, 12f);
         player = GameObject.FindWithTag("Player").transform;
         shootTime = Random.Range(0.5f, 1f);
+
+        Debug.Log("STARTED");
     }
 
     void Start()
@@ -59,7 +61,11 @@ public class NPCScript : MonoBehaviour
         if(tag == "Enemy")
         {
             navAgent.stoppingDistance = Random.Range(3f, 8f);
-            //targetLayer = (int)8;
+            npcHealth = 1f;
+        }
+        else
+        {
+            npcHealth = Random.Range(3, 7);
         }
 
         for (int i = 0; i < GameObject.Find("PatrolPoints").transform.childCount; i++)
